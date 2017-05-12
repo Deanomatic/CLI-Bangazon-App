@@ -8,8 +8,10 @@ def add_product_to_order(active_customer, product_id):
 	return 1
 
 def get_all_products():
-	product_list = [("Bike", "Doll", "Slinky")]
-	return product_list
+    with sqlite3.connect('bangazon2.db') as conn:
+    	c = conn.cursor()
+    	product_list = c.execute("select title from Product")
+    return product_list
 
 def complete_order(payment_id, active_order):
 	return 7

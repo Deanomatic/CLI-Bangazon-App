@@ -7,7 +7,7 @@ active_customer = None
 def save_customer_to_database(first_name, last_name, address, phone_number):
         ''' Allows user to add a new Customer Account and information to the database
         '''
-        with sqlite3.connect('./SQL/bangazon.db') as conn:
+        with sqlite3.connect('bangazon2.db') as conn:
             c = conn.cursor()
 
 
@@ -36,7 +36,7 @@ def select_active_customer(customer_id):
 
 def save_payment_option_to_database(payment_type, account_number, active_customer):
 
-    with sqlite3.connect('./SQL/bangazon.db') as conn:
+    with sqlite3.connect('bangazon2.db') as conn:
         c = conn.cursor()
 
         c.execute("insert into Payment values(?, ?, ?, ?)",

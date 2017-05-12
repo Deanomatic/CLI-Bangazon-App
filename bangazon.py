@@ -5,7 +5,7 @@ sys.path.append('bangazon')
 from CustomerManagement import *
 from ProductManagement import *
 
-active_customer = None
+active_customer = 1
 
 
 class Bangazon():
@@ -54,9 +54,15 @@ class Bangazon():
 
 
 
-        # if choice == "4":
-
-
+        if choice == "4":
+            """
+            Arguments: None
+            Author: Dean Smith
+            """
+            product_list = get_all_products()
+            for i, product in enumerate(product_list):
+                print(i, product[0])
+            input("")
 
 
 
