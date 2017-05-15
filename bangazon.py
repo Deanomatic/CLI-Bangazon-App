@@ -39,9 +39,23 @@ class Bangazon():
         
 
 
+            #activate_customer()
 
-        # if choice == "2":
+        if choice == "2":
+            customer_list = get_all_customers()
+            for i, customer in enumerate(customer_list):
+                print(i, customer[1] + ' ' + customer[2])
 
+            chosen_customer = input("Choose customer:\n > ")
+            try: 
+                chosen_customer = int(chosen_customer)
+                print(customer_list[0])
+            except:
+                print("Not working. You done messed up.")
+                pass
+            # chosen_customer_num = int(chosen_customer)
+            # print("NUMBER CHOSEN: ", customer_list[1])
+            input("")
 
 
 
@@ -77,7 +91,8 @@ class Bangazon():
 
 
 
-
+        else:
+            self.main_menu()
 
 if __name__ == "__main__":
   bangazon = Bangazon()

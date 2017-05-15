@@ -1,6 +1,7 @@
  # import sys
 import sqlite3
  
+global active_customer 
 active_customer = None
 
 
@@ -21,16 +22,20 @@ def get_customer(first_name, last_name, address, phone_number):
 
 
 def get_all_customers():
-    customer_list = [("Meg", "Dean", "Kayla")]
+    with sqlite3.connect("bangazon2.db") as conn:
+        c = conn.cursor()
+        customer_list = c.execute("select * from Customer")
+        customer_list = c.fetchall()
     return customer_list
         
 
 def get_active_customer():
+
     return active_customer
+ 
 
+def set_active_customer(customer_id):
 
-def select_active_customer(customer_id):
-    global active_customer
     active_customer = customer_id
 
 
